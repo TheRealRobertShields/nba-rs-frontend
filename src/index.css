@@ -53,7 +53,7 @@ body {
 
 .loading-text::after {
   content: 'Loading...';
-  animation: bideTime 15s linear infinite;
+  animation: bideTime 20s linear infinite;
 }
 @keyframes bideTime {
   0% {
@@ -145,6 +145,22 @@ body {
   margin-bottom: 0.5rem;
   font-weight: 100;
 }
+
+.winning {
+  color: goldenrod;
+  animation: changeColor 1s infinite ease-in-out alternate;
+}
+@keyframes changeColor {
+  0% {
+    transform: translate(0, 0);
+    filter: drop-shadow(0px 0px 3px black);
+  }
+  100% {
+    transform: translate(0, -5px);
+    filter: drop-shadow(0px 5px 8px black);
+  }
+}
+
 
 
 @media only screen and (max-width: 700px) {
