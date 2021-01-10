@@ -10,7 +10,7 @@ export const Games = ({schedules}) => {
             <h1>{date.toLocaleString('en-US', options)}</h1>
             <p className='time-statement'>All times are set to PST (Pacific Standard Time)</p>
             {schedules.map(game =>
-            <div className={game.gameTime === 'Final' ? 'final matchup flex-col' : game.gameTime.includes('PT') ? 'matchup flex-col' : 'live matchup flex-col'} key={game.awayTeam+game.awayRecord+game.homeTeam+game.homeRecord}>
+            <div className={game.gameTime.includes('Final') ? 'final matchup flex-col' : game.gameTime.includes('PT') ? 'matchup flex-col' : 'live matchup flex-col'} key={game.awayTeam+game.awayRecord+game.homeTeam+game.homeRecord}>
                 <h3 className='time'>{game.gameTime}</h3>  
                 <div className='flex-col wide'>
                     <div className='team-names flex-row wide'>
