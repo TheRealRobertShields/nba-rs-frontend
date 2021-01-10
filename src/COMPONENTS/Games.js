@@ -15,13 +15,13 @@ export const Games = ({schedules}) => {
                 <div className='flex-col wide'>
                     <div className='team-names flex-row wide'>
                         <div className='flex-col'>
-                            <h2 className={game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b)) >
+                            <h2 className={!game.awayPoints.length ? '' : game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b)) >
                                            game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b)) ?
                                            'winning' : ''}>{game.awayTeam}</h2>
                             <p>{game.awayRecord}</p>
                         </div>
                         <div className='flex-col'>
-                            <h2 className={game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b)) >
+                            <h2 className={!game.awayPoints.length ? '' : game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b)) >
                                            game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b)) ?
                                            'winning' : ''}>{game.homeTeam}</h2>
                             <p>{game.homeRecord}</p>
