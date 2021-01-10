@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App flex-col">
         
-      {!schedules.length ? <div className='loading'><img className='basketball' src={basketballImg} alt='basketball' /></div> : <Games schedules={schedules}/>}
+      {!schedules.length ? <div className='loading flex-col'><img className='basketball' src={basketballImg} alt='basketball' /><p className='loading-text'></p></div> : <Games schedules={schedules}/>}
 
 
 

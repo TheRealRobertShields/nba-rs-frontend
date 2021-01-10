@@ -49,6 +49,29 @@ body {
   width: 100%;
 }
 
+.loading-text::after {
+  content: 'Loading...';
+  animation: bideTime 15s linear infinite;
+}
+@keyframes bideTime {
+  0% {
+    content: "Loading..."
+  }
+  25% {
+    content: "Don't leave! I'm almost done!!"
+  }
+  50% {
+    content: 'You look wonderful today ;)'
+  }
+  75% {
+    content: 'Data.. almost.. here..'
+  }
+  100% {
+    content: "OOH! spinning ball!!"
+  }
+}
+
+
 .matchups-container {
   width: 100%;
 }
