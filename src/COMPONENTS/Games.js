@@ -22,7 +22,6 @@ export const Games = ({schedules}) => {
                             <h2>{game.homeTeam}</h2>
                             <p>{game.homeRecord}</p>
                         </div>
-                        
                     </div>
                     <div className='top-players flex-row wide'>
                         <div className='flex-col'>
@@ -48,20 +47,33 @@ export const Games = ({schedules}) => {
                         ))}
                         <span>Total</span>
                     </div>
-
                     <div className='points flex-row wide'> 
                         <span>{game.awayCity}</span>
                         {game.awayPoints.map((qtr, index) =>
-                            <span key={game.awayTeam+index}>{qtr === 0 ? '-' : qtr}</span>
+                            <span key={game.awayTeam+index}>{qtr === 0 ? '-' : qtr > game.homePoints[index] ? <b>{qtr}</b>: qtr}</span>
                         )}
-                        <span>{game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b))}</span>
+                        <span>
+                            {
+                                game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b)) > 
+                                game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b)) ? 
+                                <b>{game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b))}</b> :
+                                game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b))
+                            }
+                        </span>
                     </div>
                     <div className='points flex-row wide'> 
                         <span>{game.homeCity}</span>
                         {game.homePoints.map((qtr, index) =>
-                            <span key={game.homeTeam+index}>{qtr === 0 ? '-' : qtr}</span>
+                            <span key={game.homeTeam+index}>{qtr === 0 ? '-' : qtr > game.awayPoints[index] ? <b>{qtr}</b>: qtr}</span>
                         )}
-                        <span>{game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b), 0)}</span>
+                        <span>
+                            {
+                                game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b)) >
+                                game.awayPoints.reduce((a, b) => parseInt(a) + parseInt(b)) ?
+                                <b>{game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b))}</b> :
+                                game.homePoints.reduce((a, b) => parseInt(a) + parseInt(b))
+                            }
+                        </span>
                         
                     </div>
                 </div>

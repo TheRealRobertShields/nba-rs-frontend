@@ -105,6 +105,7 @@ body {
   color: #000000;
   border-radius: 5px;
   padding: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
   mix-blend-mode: screen;
   font-weight: bold;
 }
@@ -142,6 +143,7 @@ body {
   width: -webkit-fill-available;
   text-align: center;
   margin-bottom: 0.5rem;
+  font-weight: 100;
 }
 
 
