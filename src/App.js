@@ -9,7 +9,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSchedule());
+    setInterval(() => {
+      dispatch(getSchedule());
+    }, 30000);
   }, [dispatch])
 
   const schedules = useSelector((state) => state.schedules);
