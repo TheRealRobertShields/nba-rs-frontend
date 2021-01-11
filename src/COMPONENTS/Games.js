@@ -1,13 +1,16 @@
 export const Games = ({schedules}) => {
 
-    console.log(schedules)
 
     var date = new Date();
     let options = { weekday: 'long', month: 'long', day: 'numeric' };
+
+    console.log(date.toLocaleTimeString('en-US'));
+
     return (
         <div className='matchups-container flex-col'>
             
             <h1>{date.toLocaleString('en-US', options)}</h1>
+            <h3>Last update: {date.toLocaleTimeString('en-US')}</h3>
             <p className='time-statement'>All times are set to PST (Pacific Standard Time).</p>
             <p className='time-statement'>Page updates every 30 American seconds.</p>
             {schedules.map(game =>
