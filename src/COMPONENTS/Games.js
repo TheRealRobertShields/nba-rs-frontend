@@ -11,7 +11,7 @@ export const Games = ({schedules}) => {
             <p className='time-statement'>All times are set to PST (Pacific Standard Time).</p>
             <p className='time-statement'>Page updates every 30 American seconds.</p>
             {schedules.map(game =>
-            <div className={game.gameTime.includes('Final') ? 'final matchup flex-col' : game.gameTime.includes('PT') ? 'matchup flex-col' : 'live matchup flex-col'} key={game.awayTeam+game.awayRecord+game.homeTeam+game.homeRecord}>
+            <div className={game.gameTime.includes('Final') || game.gameTime.includes('Postponed') ? 'final matchup flex-col' : game.gameTime.includes('PT') ? 'matchup flex-col' : 'live matchup flex-col'} key={game.awayTeam+game.awayRecord+game.homeTeam+game.homeRecord}>
                 <h3 className='time'>{game.gameTime}</h3>  
                 <div className='flex-col wide'>
                     <div className='team-names flex-row wide'>
@@ -28,20 +28,30 @@ export const Games = ({schedules}) => {
                             <p>{game.homeRecord}</p>
                         </div>
                     </div>
+                    {game.gameTime === 'Postponed' ? 
                     <div className='top-players flex-row wide'>
                         <div className='flex-col'>
                             <div className='top-player'>
-                                <p>{game.awayTopPlayer[0]}</p>
+                                <h3>{game.awayTopPlayer}</h3>
+                                <p>{game.homeTopPlayer}</p>
+                            </div>
+                        </div>
+                    </div> :
+                    <div className='top-players flex-row wide'>
+                        <div className='flex-col'>
+                            <div className='top-player'>
+                                <h3>{game.awayTopPlayer[0]}</h3>
                                 <p>{game.awayTopPlayer[2]}</p>
                             </div>
                         </div>
                         <div className='flex-col'>
                             <div className='top-player'>
-                                <p>{game.homeTopPlayer[0]}</p>
+                                <h3>{game.homeTopPlayer[0]}</h3>
                                 <p>{game.homeTopPlayer[2]}</p>
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 {!game.awayPoints.length ? <div></div> : 
                 <div className='points-table flex-col wide'>
