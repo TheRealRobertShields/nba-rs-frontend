@@ -108,7 +108,9 @@ body {
   margin-bottom: 0.5rem;
   mix-blend-mode: screen;
   font-weight: bold;
+  box-shadow: 0 0 5px white;
 }
+
 .team-names div {
   width: 50%;
 }
@@ -179,6 +181,9 @@ body {
   }
   .team-names p {
     font-size: 12px;
+  }
+  .top-players div {
+    width: 85%;
   }
 }
 

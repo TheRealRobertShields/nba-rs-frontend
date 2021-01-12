@@ -34,9 +34,8 @@ export const Games = ({schedules}) => {
                     {game.gameTime === 'Postponed' ? 
                     <div className='top-players flex-row wide'>
                         <div className='flex-col'>
-                            <div className='top-player'>
-                                <h3>{game.awayTopPlayer}</h3>
-                                <p>{game.homeTopPlayer}</p>
+                            <div className='top-player postponed-message'>
+                                <h3>This game has been postponed</h3>
                             </div>
                         </div>
                     </div> :
